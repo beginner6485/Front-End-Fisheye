@@ -1,37 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css"> <!--ou <link rel="stylesheet" href="lightbox.css">-->
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png" aria-label="logo Fishereye">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
+
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="logo">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
     </header>
+
     <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
+      <div class="banner"></div> <!--ajout ici de 2 DIV manuellement banner & media_section + facile d'ajouter la suite-->
     </main>
+      <label for="selection" id="trier">Trier par :</label> <!--label for doit avoir la même valeur que l'attribut ID pour les lier-->
+      <select name="tri" id="selection">
+          <option value="likes">Popularité </option>
+          <option value="date">Date </option>
+          <option value="title">Titre </option>
+      </select>
+        
+      <div class="media_section"></div>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <span>Contactez-moi</span>
+          <img src="assets/icons/close.svg" alt="fermer" onclick="closeModal()" >
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
+						<label for="prenom">Prénom :</label>
+            <input type="text" id="prenom">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom">
+            <label for="email">Email :</label>
+            <input type="text" id="email">
+            <label for="message">Votre Message :</label>
+            <textarea id="message" maxlength="150"></textarea>
+            <br>
+            <button type="button" class="contact_button" aria-label="Envoyer le formulaire" onclick="ReturnConsole(), closeModal()">Envoyer</button>
+          </div>
 				</form>
-			</div>
+      </div>
 		</div>
+    <div class="modalLightbox"> <!-- modal à ouvrir-->
+          <em class="fa-solid fa-xmark fa-3x lightbox__close" onclick="closeLightBox()" tabindex="0" aria-label="élement pour clore la fenêtre"></em>
+          <em class="fa-solid fa-chevron-right fa-3x lightbox__next" tabindex="0"  aria-label="chevron pour afficher l'élement suivant"></em>
+          <em class="fa-solid fa-chevron-left fa-3x lightbox__previous" tabindex="0" aria-label="chevron pour afficher l'élement précédent"></em>
+          <div class="lightbox__container">  
+          </div>
+    </div>
+    <div class="counter">/ jour</div>
+    <script src="/scripts/factories/profilFactories.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+
   </body>
 </html>
