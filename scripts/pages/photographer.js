@@ -12,7 +12,7 @@ fetch("../../data/photographers.json")
 
         const found = value.photographers.find(element => element.id == id);
 
-        const photographProfil = userInfo(found) // ? a quoi ça sert ?
+        const photographProfil = userInfo(found) // 
 
         const mediaFilter = value.media.filter(element => element.photographerId == id); 
 
@@ -114,7 +114,7 @@ function closeLightBox() {
 
 // Fermeture depuis la croix
 
-const cross = document.querySelector(".lightbox__close"); // ne pas oublier le .
+const cross = document.querySelector(".lightbox__close");
 cross.addEventListener("click", closeLightBox);
 cross.addEventListener("keyup",(e)=>{
     if(e.key==="Enter"){
@@ -149,7 +149,7 @@ function heartCounter(){
 
 // Tri et apparence
 
-    function changeApparence(mediaFilter) { // ici option n'est pas utilisé (supp param Option)
+    function changeApparence(mediaFilter) { 
         const select = document.querySelector("#selection");
         select.addEventListener('change', (e) => {
         const sortBy = e.target.value;
