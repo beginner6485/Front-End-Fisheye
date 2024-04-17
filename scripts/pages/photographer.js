@@ -31,7 +31,6 @@ fetch("../../data/photographers.json")
             openModal(e)
 
             let clone = e.target.cloneNode(true);
-            console.log(clone);
             lightbox.appendChild(clone);
             clone.classList.add("cloneSize");
             clone.setAttribute("controls", "controls")
@@ -39,7 +38,6 @@ fetch("../../data/photographers.json")
             // bouton Next
 
             let indexMedias = Array.prototype.indexOf.call(modalTrigger, e.target); //indexOf = la position de ... // 
-            console.log(indexMedias);
 
             function nextFunction(){
                 indexMedias += 1;
@@ -57,7 +55,6 @@ fetch("../../data/photographers.json")
             const nextBox = document.querySelector(".lightbox__next");
             nextBox.addEventListener("click", nextFunction)
             nextBox.addEventListener("keyup", (e) => {
-                console.log("keyup")
                 if (e.key==="Enter"){
                     nextFunction()
                 }
@@ -120,7 +117,6 @@ function closeLightBox() {
 const cross = document.querySelector(".lightbox__close"); // ne pas oublier le .
 cross.addEventListener("click", closeLightBox);
 cross.addEventListener("keyup",(e)=>{
-    console.log("keyup")
     if(e.key==="Enter"){
         closeLightBox()
     }
@@ -137,18 +133,15 @@ function heartCounter(){
     hearts.forEach((item) => {
         item.addEventListener('click', (e) => {
             const compteurElement = e.target.previousElementSibling;
-            let compteur = compteurElement.innerText; // ici on récupère tous les coeurs que l'on souhaite en innerText pour les compter en number (car chaine de caractères)
-            let convertNumber = Number(compteur); // Number Autrement dit, il est utilisé pour manipuler les nombres comme des objets. Pour créer un objet Number, on utilise le constructeur Number().
+            let compteur = compteurElement.innerText; 
+            let convertNumber = Number(compteur); 
             convertNumber += 1;
-            console.log(convertNumber);
-            compteurElement.innerText = convertNumber;//déjà modifié en dernier
-            console.log(convertNumber);
+            compteurElement.innerText = convertNumber;
 
             const counterLikes = document.querySelector(".likescounter");
             let globalCompteur = counterLikes.innerText;
             let globalConvertNumber = Number(globalCompteur);
             globalConvertNumber += 1;
-            console.log(globalConvertNumber);
             counterLikes.innerText = globalConvertNumber;
              })
         });
@@ -165,18 +158,17 @@ function heartCounter(){
         if (select.value === "likes") {
             mediaFilter.sort((a, b) => {
                 return b.likes - a.likes;
-            }); console.log(mediaFilter);
+            }); 
 
         } else if (select.value === "title") {
             mediaFilter.sort((a, b) => {
                 return a.title.localeCompare(b.title);
-            }); console.log(mediaFilter);
+            }); 
 
         } else if (select.value === "date") {
             mediaFilter.sort((a, b) => {
                 return new Date(b.date) - new Date(a.date);
             });
-            console.log(mediaFilter);
         }
         const mediaSection = document.querySelector(".media_section");
         mediaSection.innerHTML = "";
