@@ -195,7 +195,6 @@ function heartCounter(){
             mediaSection.appendChild(mediaProfil);
         });
         heartCounter();//
-        lightboxLarge();//
     }
     )
 };
