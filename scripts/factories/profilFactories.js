@@ -35,7 +35,7 @@ function infosMedia(infos) {
         const mediasVideos = `assets/images/${photographerId}/${video}`
         article.innerHTML =
             `  
-            <video class="video_style trigger" aria-label="${title}" alt="video">
+            <video class="video_style trigger" alt="video" aria-label="vidéo à lire" >
             <source src="${mediasVideos}"></source>
             </video>
             <div class="Title"><h4>${title}</h4>
