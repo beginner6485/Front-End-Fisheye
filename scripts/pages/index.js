@@ -1,4 +1,5 @@
-    async function getPhotographers() {
+// redirection au clic sur Logo 
+  async function getPhotographers() {
         fetch ("../../data/photographers.json") // on sort de pages et de scripts pour aller dans data
             .then (function(res) {
             if (res.ok){

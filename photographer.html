@@ -3,19 +3,19 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css"> <!--ou <link rel="stylesheet" href="lightbox.css">-->
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png" aria-label="logo Fishereye">
+    <link rel="icon" type="image/png" href="assets/favicon.png" aria-label="logo">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
 
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="logo">
+      <img src="assets/images/logo.png" class="logo" alt="logo du site web">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
     </header>
 
     <main id="main">
-      <div class="banner"></div> <!--ajout ici de 2 DIV manuellement banner & media_section + facile d'ajouter la suite-->
+      <div class="banner"></div> 
     </main>
       <label for="selection" id="trier">Trier par :</label> <!--label for doit avoir la même valeur que l'attribut ID pour les lier-->
       <select name="tri" id="selection">
@@ -29,7 +29,7 @@
 			<div class="modal">
 				<header>
           <span>Contactez-moi</span>
-          <img src="assets/icons/close.svg" alt="fermer" onclick="closeModal()" >
+          <img src="assets/icons/close.svg" alt="fermer" class="close-modale" >
         </header>
 				<form>
 					<div>
@@ -42,7 +42,7 @@
             <label for="message">Votre Message :</label>
             <textarea id="message" maxlength="150"></textarea>
             <br>
-            <button type="button" class="contact_button" aria-label="Envoyer le formulaire" onclick="ReturnConsole(), closeModal()">Envoyer</button>
+            <button type="button" class="contact_button" aria-label="Envoyer le formulaire" onclick="ReturnConsole()">Envoyer</button>
           </div>
 				</form>
       </div>

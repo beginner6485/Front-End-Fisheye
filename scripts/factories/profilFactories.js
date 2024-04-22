@@ -4,7 +4,7 @@ function userInfo(infoP) {
     const picture = `assets/images/Photographers ID Photos/${portrait}`;
     const infoPhoto = document.querySelector(".banner");
     infoPhoto.innerHTML =
-        `         
+        ` 
                         <div class="infoText">
                             <h2>${name}</h2></a>
                             <h3 class="town">${city}, ${country}</h3>
@@ -24,7 +24,7 @@ function infosMedia(infos) {
         const medias = `assets/images/${photographerId}/${image}`;
         article.innerHTML =
             `
-            <img src ="${medias}" class="img_style trigger" tabindex="0 alt="${title}"/>
+            <img src ="${medias}" class="img_style trigger" tabindex="0  alt="${title}" aria-label="photographie"/>
             <div class="Title"><h4>${title}</h4>
             <div class="likes">${likes}</div><i class="fa-solid fa-heart" aria-label="bouton likes"></i>
             </div>
@@ -35,7 +35,7 @@ function infosMedia(infos) {
         const mediasVideos = `assets/images/${photographerId}/${video}`
         article.innerHTML =
             `  
-            <video class="video_style trigger" aria-label="${title}">
+            <video class="video_style trigger" aria-label="${title}" alt="video">
             <source src="${mediasVideos}"></source>
             </video>
             <div class="Title"><h4>${title}</h4>

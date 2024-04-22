@@ -1,4 +1,12 @@
 //Mettre le code JavaScript lié à la page photographer.html
+
+// redirection au clic sur Logo 
+const logoImg = document.querySelector('.logo');
+logoImg.addEventListener("click", function() {
+        window.location.href = "/index.html";
+});
+     
+
 fetch("../../data/photographers.json")
     .then(function (res) {
         if (res.ok) {
@@ -11,9 +19,7 @@ fetch("../../data/photographers.json")
         const id = urlParams.get('id')
 
         const found = value.photographers.find(element => element.id == id);
-
         const photographProfil = userInfo(found) // 
-
         const mediaFilter = value.media.filter(element => element.photographerId == id); 
 
         const mediaSection = document.querySelector(".media_section");
@@ -28,14 +34,29 @@ fetch("../../data/photographers.json")
 
         function modalFunction(e){
             lightbox.innerHTML = ""; // efface le précédent média cliqué
-            openModal(e)
+    
+    
+        // Clone l'élément cible et l'ajoute à la lightbox
+        let clone = e.target.cloneNode(true);
+        lightbox.appendChild(clone);
+        clone.classList.add("cloneSize");
+        clone.setAttribute("controls", "controls");
 
-            let clone = e.target.cloneNode(true);
-            lightbox.appendChild(clone);
-            clone.classList.add("cloneSize");
-            clone.setAttribute("controls", "controls")
-            
-            // bouton Next
+        // Crée un élément <h3> pour le titre
+    const titleElement = document.createElement("h3");
+    
+    // Récupère le titre de l'élément en fonction de son type
+    if (e.target.nodeName.toLowerCase() === "img") {
+        titleElement.textContent = e.target.getAttribute("alt");
+    } else if (e.target.nodeName.toLowerCase() === "video") {
+        titleElement.textContent = e.target.getAttribute("aria-label");
+    }
+    console.log(e.target)
+    console.log(titleElement);
+    console.log("Événement :", e);
+
+    // Ouvre la lightbox
+        openModal(e);
 
             let indexMedias = Array.prototype.indexOf.call(modalTrigger, e.target); //indexOf = la position de ... // 
 
@@ -87,13 +108,10 @@ fetch("../../data/photographers.json")
         }
         modalTrigger.forEach(trigger => trigger.addEventListener("click", modalFunction));
         modalTrigger.forEach(trigger => trigger.addEventListener("keyup", (e) =>{
-           
             if(e.key==="Enter"){
                 modalFunction(e)
             }
         } ));
-
-
         counter(found.price);
         heartCounter();
         changeApparence(mediaFilter);

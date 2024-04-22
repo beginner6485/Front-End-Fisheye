@@ -1,15 +1,22 @@
+
 function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
 }
 
-function closeModal() {
+function closeModal(){
     const modal = document.getElementById("contact_modal");
-    const closeform = document.querySelector(".modal")
+    const contactBtn = document.querySelector(".contact_button");
 
-    modal.style.display = "none";
-    closeform.style.display="none";
+    contactBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    })
+    const closeBtn = document.querySelector(".close-modale");
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    })
 }
+closeModal();
 
 function ReturnConsole(){
     const firstName = document.getElementById("prenom").value;
